@@ -1,4 +1,3 @@
-import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
@@ -23,8 +22,7 @@ function buildServer() {
   return mcp;
 }
 
-const port = Number(process.env.PORT || 8787);
-createServer(async (req, res) => {
+export async function handleRequest(req, res) {
   const path = req.url?.split('?')[0];
   if (req.method === 'GET' && path === '/') {
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' }).end(widget);
@@ -50,4 +48,4 @@ createServer(async (req, res) => {
     if (!res.headersSent) res.writeHead(500).end();
     else if (!res.writableEnded) res.end();
   }
-}).listen(port, process.env.BIND_HOST || '127.0.0.1', () => console.log('Screenshot to PDF listening on port ' + port));
+}

@@ -1,1 +1,1 @@
-{"name":"screenshot-pdf","version":"0.1.0","private":true,"type":"module","scripts":{"start":"node server.mjs"},"dependencies":{"@modelcontextprotocol/sdk":"1.30.0"},"overrides":{"jose":"6.2.12","@hono/node-server":"2.0.12"}}
+{"name":"screenshot-pdf","version":"0.1.0","private":true,"type":"module","scripts":{"start":"node server.ts"},"dependencies":{"@modelcontextprotocol/sdk":"1.30.0"},"overrides":{"jose":"6.2.12","@hono/node-server":"2.0.12"}}
