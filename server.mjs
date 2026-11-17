@@ -22,7 +22,7 @@ function buildServer() {
   return mcp;
 }
 
-export async function handleRequest(req, res) {
+export default async function handleRequest(req, res) {
   const path = req.url?.split('?')[0];
   if (req.method === 'GET' && path === '/') {
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' }).end(widget);

@@ -10,7 +10,7 @@ For an older chat, download the images you want to keep, bundle them, and use th
 
 ## Connect as a custom ChatGPT plugin
 
-1. Extract the archive. With Node.js 22.18 or newer, run `npm ci` and `npm start` in the extracted folder. Open `http://127.0.0.1:8787/` to preview the converter.
+1. Extract the archive. With Node.js 22 or newer, run `npm ci` and `npm start` in the extracted folder. Open `http://127.0.0.1:8787/` to preview the converter.
 2. Make `/mcp` reachable via a Secure MCP Tunnel or an HTTPS deployment. The server binds to localhost by default; set `BIND_HOST=0.0.0.0` only if the deployment requires it. The default port is 8787; set `PORT` to override it.
 3. In ChatGPT on the web, go to **Plugins → + → Add custom MCP server**. Add the HTTPS URL ending in `/mcp` or select your secure tunnel. Follow your workspace's connection settings.
 4. In a new chat, select the plugin with `@` and ask “Open Screenshot to PDF.” Select your local files in the widget. Download and attach the result. If the ChatGPT Library save helper is available, you can also save the generated PDF there and select it separately.
@@ -21,7 +21,7 @@ The server only delivers the converter UI and tool metadata. Image bytes and PDF
 
 ## Deploy on Vercel
 
-Create a separate Vercel project from this GitHub repository. Use the repository root and let Vercel detect the Node.js server in `server.ts`. No secret variables or custom build command are needed.
+Create a separate Vercel project from this GitHub repository. Use the repository root and let Vercel detect the Node.js server in `server.mjs`. No secret variables or custom build command are needed.
 
 Once the deployment succeeds, open its production URL to check that the converter loads. Use that same URL with `/mcp` appended when adding the custom server in ChatGPT. Keep preview deployments protected and use a production URL reachable by ChatGPT.
 
